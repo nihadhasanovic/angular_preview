@@ -26,7 +26,7 @@ export function app(): express.Express {
       // Hard-coded meta tags for testing
       const metaTitle = 'My Static Test Title';
       const metaDescription = 'This is a static description for testing meta tag replacement.';
-      const metaImage = 'https://via.placeholder.com/600x400?text=Static+Test+Image';
+      const metaImage = 'https://static.vecteezy.com/system/resources/previews/006/662/131/non_2x/replace-icon-double-reverse-arrow-exchange-linear-sign-for-graphic-design-logo-web-site-social-media-mobile-app-ui-illustration-free-vector.jpg';
 
       // Render the Angular app to a string
       let html = await commonEngine.render({
