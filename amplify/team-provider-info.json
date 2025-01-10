@@ -1,0 +1,16 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AmplifyAppId": "d1v7mbc6cgntns",
+      "AuthRoleArn": "arn:aws:iam::471112804541:role/amplify-footballfans-dev-183950-authRole",
+      "AuthRoleName": "amplify-footballfans-dev-183950-authRole",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-footballfans-dev-183950-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json",
+      "DeploymentBucketName": "amplify-footballfans-dev-183950-deployment",
+      "Region": "us-east-1",
+      "StackId": "arn:aws:cloudformation:us-east-1:471112804541:stack/amplify-footballfans-dev-183950/66346700-c83b-11ee-90c1-127ffa3be6b3",
+      "StackName": "amplify-footballfans-dev-183950",
+      "UnauthRoleArn": "arn:aws:iam::471112804541:role/amplify-footballfans-dev-183950-unauthRole",
+      "UnauthRoleName": "amplify-footballfans-dev-183950-unauthRole"
+    }
+  }
+}

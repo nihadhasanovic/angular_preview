@@ -1,0 +1,295 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: #000;
+  font-family: Arial, sans-serif;
+}
+
+.logo-container {
+  position: fixed;
+  top: 40px;
+  left: 40px;
+  z-index: 1000;
+}
+
+.logo-container a {
+  display: inline-block;
+}
+
+.logo-icon {
+  width: 70px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.logo-icon:hover {
+  transform: scale(1.05);
+  opacity: 0.8;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  padding-bottom: 20px;
+  background-color: #000;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.play-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 20;
+}
+
+.play-overlay.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+
+.play-overlay svg {
+  width: 80px;
+  height: 80px;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+}
+
+.play-overlay:active {
+  transform: translate(-50%, -50%) scale(0.95);
+  opacity: 0.9;
+}
+
+.store-buttons-container {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.store-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.storeLink {
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
+  outline: none;
+}
+
+.storeLink:hover {
+  transform: scale(1.05);
+  opacity: 0.8;
+}
+
+.storeLink:focus {
+  outline: none;
+}
+
+
+.store-icon {
+  width: 200px;
+  height: 70px;
+}
+
+.error-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.error-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.error-icon {
+  margin-bottom: 20px;
+  animation: pulse 2s infinite;
+}
+
+.error-text {
+  font-size: 1.5em;
+  line-height: 1.4;
+  max-width: 80%;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@media (min-width: 1024px) {
+  .main-container {
+    margin: 0;
+    padding-bottom: 40px;
+  }
+
+  .video-container {
+    max-width: 600px;
+    max-height: 100vh;
+  }
+
+  .store-buttons-container {
+    margin-top: 20px;
+  }
+
+  .store-buttons {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .video-container {
+    max-width: 600px;
+  }
+
+  .store-buttons {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    padding-bottom: 30px; 
+  }
+
+  .store-buttons-container {
+    margin-bottom: 20px;
+  }
+
+  .logo-container {
+    top: 20px;
+    left: 20px;
+  }
+
+  .logo-icon {
+    width: 50px;
+  }
+
+  .store-buttons {
+    gap: 10px; 
+  }
+
+  .store-icon {
+    height: 60px;
+  }
+}
+
+@media (max-width: 430px) {
+  .main-container {
+    padding-bottom: 50px; 
+  }
+
+  .store-buttons-container {
+    margin-bottom: 30px;
+  }
+
+  .video-container {
+    max-width: 100%;
+    max-height: calc(100dvh - 120px); 
+  }
+
+  .store-buttons {
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .store-icon {
+    width: 120px;
+    height: 50px;
+  }
+
+  .play-overlay svg {
+    width: 60px;
+    height: 60px;
+  }
+
+  .logo-container {
+    top: 10px;
+    left: 10px;
+  }
+
+  .logo-icon {
+    width: 50px;
+  }
+}
+
+
+
+.play-overlay:active {
+  transform: translate(-50%, -50%) scale(0.95);
+  opacity: 0.9;
+}

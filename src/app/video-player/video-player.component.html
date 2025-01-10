@@ -1,0 +1,84 @@
+<!-- Logo Container -->
+<div class="logo-container">
+  <a href="https://www.ffanzone.com/" aria-label="Go to ffanzone">
+    <img 
+      src="assets/icons/ff_logo.svg" 
+      alt="FF Logo" 
+      class="logo-icon"
+    />
+  </a>
+</div>
+
+<!-- Main Content -->
+<div class="main-container" *ngIf="!videoError; else errorTemplate">
+  <div class="video-container" (click)="toggleVideo()">
+    <video 
+      #videoPlayer 
+      controls
+      autoplay
+      (click)="$event.stopPropagation()" 
+      (touchstart)="$event.preventDefault(); $event.stopPropagation();" 
+    ></video>
+
+  <!-- Play Overlay: Only Visible on Non-Mobile Devices -->
+      <!-- <div 
+      class="play-overlay" 
+      *ngIf="!isMobileDevice && isPaused && !videoLoading"
+      (click)="toggleVideo(); $event.stopPropagation()" 
+      aria-label="Play Video"
+      tabindex="0"
+      role="button"
+      (keydown.enter)="toggleVideo(); $event.stopPropagation()" 
+      (keydown.space)="toggleVideo(); $event.stopPropagation()" 
+    >
+
+      <svg width="40" height="40" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="30" stroke="white" stroke-width="4" fill="rgba(0, 0, 0, 0.5)" />
+        <polygon points="26,20 46,32 26,44" fill="white" />
+      </svg>
+    </div> -->
+
+    <!-- Material Progress Bar -->
+    <mat-progress-bar *ngIf="videoLoading" mode="indeterminate" class="progress-bar"></mat-progress-bar>
+  </div>
+
+  <!-- Store Buttons -->
+  <div class="store-buttons-container" *ngIf="!videoLoading">
+    <div class="store-buttons">
+      <!-- App Store Link with Icon -->
+      <a href="https://apps.apple.com/us/app/ff-football-fans/id6502601196" class="storeLink" aria-label="Download on the App Store">
+        <img 
+          src="assets/icons/appstore_icon.svg" 
+          alt="Download on the App Store" 
+          class="store-icon app-store-icon"
+        />
+      </a>
+      
+      <!-- Google Play Store Link with Icon -->
+      <a href="https://play.google.com/store/apps/details?id=com.football.fans.app" class="storeLink" aria-label="Get it on Google Play">
+        <img 
+          src="assets/icons/google_playstore_icon.svg" 
+          alt="Get it on Google Play" 
+          class="store-icon google-play-icon"
+        />
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Error Template for Video Not Found -->
+<ng-template #errorTemplate>
+  <div class="error-message">
+    <div class="error-content">
+      <div class="error-icon">
+        <svg width="64" height="64" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="white">
+          <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2" fill="none"></circle>
+          <line x1="12" y1="7" x2="12" y2="13" stroke="white" stroke-width="2" stroke-linecap="round"></line>
+          <circle cx="12" cy="17" r="1" fill="white"></circle>
+        </svg>
+      </div>
+      <p class="error-text">Sorry, the video could not be found or loaded.</p>
+    </div>
+  </div>
+</ng-template>
+
